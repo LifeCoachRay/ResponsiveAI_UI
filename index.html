@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Landing Page</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+    }
+    
+    nav {
+      background-color: red;
+    }
+    
+    h1 {
+      color: red;
+    }
+    
+    input[type="submit"] {
+      background-color: red;
+      color: black;
+    }
+    
+    footer {
+      background-color: red;
+      color: black;
+      text-align: center;
+    }
+    :hover{
+      color: yellowgreen
+
+    }
+
+    #hero {
+  position: relative;
+  text-align: center;
+  color: rgb(1, 1, 1);
+  padding: 100px 0;
+  background-image: url("../socialmediaapp/image/jelmoon.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#hero h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <div id="hero">
+    <h2>Welcome to My Landing Page</h2>
+    <img src="../socialmediaapp/image/aidog.png" alt="A hero image">
+  </div>
+  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <h1>Please log in with your email address to continue</h1>
+  
+  <form onsubmit="return validateForm()">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <input type="submit" value="Submit">
+  </form>
+  
+  <footer>
+    <a href="https://puzzleartcollection.website" target="_blank"> Copyright 2022 @JellyChain1</a>
+  </footer>
+  
+  <script>
+    function validateForm() {
+      // Get the email value from the form
+      var email = document.getElementById("email").value;
+      
+      // Check if the email is valid
+      if (email == "") {
+        // The email is empty, show an error message
+        alert("Email cannot be empty");
+        return false;
+      } else {
+        // The email is valid, log the user in
+        alert("Logging in with email: " + email);
+        
+        // Store the email in local storage
+        localStorage.setItem("email", email);
+        
+        // Send a confirmation email
+        sendConfirmationEmail(email);
+        
+        return true;
+      }
+    }
+    
+    function sendConfirmationEmail(email) {
+      // Use the email value to send a confirmation email
+      // (This is just a placeholder, a real implementation would use a
+      // server-side language and email sending service to actually send the email)
+      alert("Sending confirmation email to: " + email);
+    }
+  </script>
+</body>
+
+</html>
